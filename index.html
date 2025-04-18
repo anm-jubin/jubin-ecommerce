@@ -724,6 +724,34 @@
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
         /* Add shadow on press */
       }
+      
+       /* Prevent tap highlight on the entire product card area */
+    .product-container {
+        -webkit-tap-highlight-color: transparent; /* Or rgba(0,0,0,0) */
+    }
+    /* --- END --- */
+
+    /* Keep the rules for specific elements inside the card as a backup */
+    .product-container .color-option,
+    .product-container .quantity-btn,
+    .product-container .size-option,
+    .product-container .add-to-cart-btn,
+    .product-container .buy-now-btn,
+    .product-container .product-image, /* If image is clickable */
+    .product-container .view-details-icon { /* If eye icon is clickable */
+        -webkit-tap-highlight-color: transparent; /* Or rgba(0,0,0,0) */
+    }
+
+    /* Keep rules for other areas like order summary */
+    .order-summary .cart-qty-btn,
+    .order-summary .remove-item-btn {
+         -webkit-tap-highlight-color: transparent; /* Or rgba(0,0,0,0) */
+    }
+
+    /* Optional: General rule for common interactive elements */
+    /* button, a, input, select, textarea, [onclick] {
+        -webkit-tap-highlight-color: transparent;
+    } */
     }
     
     /* --- End Touch Device Adjustments --- */
