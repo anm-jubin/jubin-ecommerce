@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RelaxDays BD</title>
+  <title>Fix 19 Apr</title>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  
   
   <style>
     body {
@@ -28,22 +30,44 @@
     }
     
     /* Floating cart button */
+    /* Floating cart button Pulse movement */
+    @keyframes cartPulse {
+
+      0%,
+      80%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+      
+      85% {
+        transform: translateY(-2px) scale(1.02);
+      }
+      
+      90% {
+        transform: translateY(0) scale(1);
+      }
+    }
+    
     .floating-cart {
       position: fixed;
-      bottom: 100px;
+      bottom: 120px;
       right: 20px;
-      background-color: #4CAF50;
+      background-color: #111111;
       color: white;
       padding: 10px 15px;
       border-radius: 30px;
+      border-style: solid;
+      border-color: white;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       cursor: pointer;
       z-index: 1000;
       display: flex;
       align-items: center;
       gap: 10px;
-      transition: transform 0.3s ease;
+      animation: cartPulse 3s infinite ease-in-out;
     }
+    
+    
     
     .floating-cart:hover {
       transform: scale(1.05);
@@ -53,9 +77,11 @@
       position: absolute;
       top: -10px;
       right: -10px;
-      background-color: red;
-      color: white;
+      background-color: white;
+      color: black;
       border-radius: 50%;
+      border-style: solid;
+      border-color: #777777;
       width: 20px;
       height: 20px;
       display: flex;
@@ -79,82 +105,24 @@
       margin-top: 15px;
     }
     
-    .add-to-cart-btn {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 12px 15px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-      width: 100%;
-      transition: background-color 0.3s ease;
-    }
     
-    .add-to-cart-btn:hover {
-      background-color: #45a049;
-    }
     
-    .buy-now-btn {
-      background-color: #FF9800;
-      color: white;
-      border: none;
-      padding: 12px 15px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-      width: 100%;
-      transition: background-color 0.3s ease;
-    }
     
-    .buy-now-btn:hover {
-      background-color: #F57C00;
-    }
     
-    /* Navigation buttons */
-    .navigation-buttons {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-      padding: 10px;
-    }
     
-    .navigation-btn {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 16px;
-      transition: background-color 0.3s;
-    }
-    
-    .navigation-btn:hover {
-      background-color: #45a049;
-    }
-    
-    .back-btn {
-      background-color: #f1f1f1;
-      color: #333;
-      margin-bottom: 15px;
-    }
-    
-    .back-btn:hover {
-      background-color: #ddd;
-    }
     
     /* Cart notification */
     #cart-notification {
       position: fixed;
-      bottom: 20px;
+      bottom: 80px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #4CAF50;
+      background-color: #222222;
       color: white;
       padding: 10px 20px;
       border-radius: 5px;
+      border-style: solid;
+      border-color: #f9f9f9f9;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       z-index: 1001;
       transition: opacity 0.5s;
@@ -170,74 +138,8 @@
       padding-bottom: 10px;
     }
     
-    //Whatsapp message button pop up
-    @keyframes bounce {
-      
-      0%,
-      20%,
-      50%,
-      80%,
-      100% {
-        transform: translateY(0);
-      }
-      
-      40% {
-        transform: translateY(-10px);
-      }
-      
-      60% {
-        transform: translateY(-5px);
-      }
-    }
+
     
-    .whatsapp-bounce {
-      animation: bounce 0.8s ease;
-    }
-    
-    /* Add this for the close button on WhatsApp */
-    .whatsapp-close {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      width: 20px;
-      height: 20px;
-      background-color: #f44336;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    
-    
-    .empty-space {
-      
-      height: 200px;
-      /* Adjust height as needed */
-      
-      background-color: transparent;
-      /* Make it invisible if desired */
-      
-    }
-    
-    .add-to-cart-btn {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      margin-top: 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-      width: 100%;
-    }
-    
-    .add-to-cart-btn:hover {
-      background-color: #45a049;
-    }
     
     
     
@@ -249,16 +151,6 @@
       width: 100%;
     }
     
-    .add-to-cart-btn,
-    .buy-now-btn {
-      padding: 8px 15px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-      flex: 1;
-      margin: 0 5px;
-    }
     
     .product-buttons {
       display: block;
@@ -343,30 +235,7 @@
       }
     }
     
-    /* Keep the very small screen layout as a fallback */
-    @media (max-width: 480px) {
-      
-      /* Keep two columns even on very small screens, but adapt spacing */
-      .products-grid {
-        gap: 8px;
-        /* Even smaller gap */
-      }
-      
-      /* Further reduce padding */
-      .product-container {
-        padding: 4px;
-      }
-      
-      /* Smaller font sizes */
-      .product-name {
-        font-size: 12px;
-      }
-      
-      .original-price,
-      .discounted-price {
-        font-size: 12px;
-      }
-    }
+    
     
     /* Checkbox container styling */
     .checkbox-container {
@@ -561,7 +430,53 @@
       transform: scale(1.08);
       /* Slightly reduced scale */
     }
-    
+    .size-option.unavailable {
+  position: relative;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.size-cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.unavailable-price
+{
+  Color: red;
+  font-weight: bold;
+}
+/* For unavailable products */
+.product-container.unavailable {
+  opacity: 0.8;
+  position: relative;
+}
+
+.product-container.unavailable::after {
+  content: "SOLD OUT!!!";
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  background: rgba(255, 0, 0, 0.7);
+  color: white;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+/* Disable buttons for unavailable products */
+.product-container.unavailable .add-to-cart-btn,
+.product-container.unavailable .buy-now-btn {
+  pointer-events: none;
+  opacity: 0.5;
+}
     /* Mobile layout adjustments - the core change to fix your issue */
     @media (max-width: 768px) {
       .product-container {
@@ -634,6 +549,8 @@
     
     button:hover {
       background-color: #45a049;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      
     }
     
     /* Validation error */
@@ -690,14 +607,18 @@
       /* Make selectors more compact */
       .color-selector label,
       .size-selector label {
-        font-size: 11px;
+        font-size: 12px;
       }
       
       /* Smaller color and size options */
-      .color-option,
-      .size-option {
+      .color-option {
         width: 20px;
         height: 20px;
+      }
+      
+      .size-option {
+        width: 23px;
+        height: 23px;
       }
       
       /* Smaller quantity controls */
@@ -709,56 +630,270 @@
       }
     }
     
-    /* Further adjustments for very small screens */
-    @media (max-width: 480px) {
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 5px;
-        /* Even smaller gap */
-      }
-      
-      /* Make product name text even smaller */
-      .product-name {
-        font-size: 12px;
-      }
-      
-      /* Make selectors even smaller */
-      .color-option,
-      .size-option {
-        width: 20px;
-        height: 20px;
-      }
-      
-      .size-option {
-        font-size: 10px;
-      }
-    }
+    
     
     /* Main product container styling */
   </style>
   
   <style>
-    /* Side panel that slides in from right */
-    .product-slide-panel {
-      position: fixed;
-      top: 0;
-      right: -400px;
-      /* Start off-screen */
-      width: 400px;
-      height: 100vh;
-      background-color: white;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-      z-index: 9000;
-      transition: right 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      overflow-y: auto;
+    /* navigation button animation */
+    
+    /* --- Touch Device Adjustments --- */
+    @media (hover: none) {
+
+      /* 1. Reset hover styles specifically for touch */
+      button:hover {
+        background-color: #4CAF50;
+        /* Reset to original main button color */
+        box-shadow: none;
+        /* Remove hover shadow */
+      }
+      
+      .navigation-btn:hover,
+      .back-btn:hover {
+        background-color: #222222;
+        /* Reset to original nav button color */
+      }
+      
+      .add-to-cart-btn:hover,
+      .buy-now-btn:hover,
+      .panel-add-to-cart:hover {
+        background-color: #1C1C1E;
+        /* Reset to original dark button color */
+      }
+      
+      .quantity-btn:hover {
+        background-color: #f8f8f8;
+        /* Reset */
+      }
+      
+      .panel-quantity-btn:hover {
+        background-color: #f0f0f0;
+        /* Reset */
+      }
+      
+      /* Reset hover for size/color options if they had hover effects you want to disable */
+      
+      .color-option:hover {
+        /* Reset to base styles or remove hover effect */
+        border: 2px solid transparent;
+        box-shadow: none;
+        transform: none;
+      }
+      
+      .color-option:hover::after {
+        /* Hide tooltip on touch hover */
+        display: none;
+      }
+      
+      
+      /* 2. Define :active styles for tap feedback on touch */
+      button:active {
+        /* Style for the main green Place Order button */
+        background-color: #3e8e41;
+        /* Darker green */
+        transform: scale(0.98);
+        /* Optional: slight press down effect */
+      }
+      
+      .navigation-btn:active,
+      .back-btn:active {
+        background-color: #45a049;
+        /* Use the green color from desktop hover */
+        transform: scale(0.98);
+      }
+      
+      .add-to-cart-btn:active,
+      .buy-now-btn:active,
+      .panel-add-to-cart:active {
+        background-color: #4CAF50;
+        /* Use green for feedback */
+        transform: scale(0.98);
+      }
+      
+      .quantity-btn:active,
+      .panel-quantity-btn:active {
+        background-color: #ddd;
+        /* Darker gray for quantity buttons */
+        transform: scale(0.95);
+      }
+      
+      .color-option:active {
+        transform: scale(0.95);
+        /* Press down effect */
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+        /* Add shadow on press */
+      }
     }
     
-    .product-slide-panel.active {
-      right: 0;
-      /* Slide in */
+    /* --- End Touch Device Adjustments --- */
+    
+    button,
+    .navigation-btn,
+    .add-to-cart-btn,
+    .buy-now-btn,
+    .panel-add-to-cart,
+    .quantity-btn,
+    .panel-quantity-btn,
+    .size-option,
+    .color-option
+
+    /* Add other tappable elements if desired */
+      {
+      /* Make sure existing padding, border, etc. are defined */
+      transition: background-color 0.15s ease-out, border-color 0.15s ease-out, transform 0.1s ease-out, box-shadow 0.15s ease-out;
+      /* Adjust properties and duration as needed */
+      -webkit-tap-highlight-color: transparent;
+      /* Optional: removes the default grey tap highlight on some mobile browsers */
     }
+    
+    /* Specifically for size/color options if you want a scale effect */
+    .size-option,
+    .color-option {
+      transition: background-color 0.15s ease-out, border-color 0.15s ease-out, transform 0.15s ease-out, box-shadow 0.15s ease-out;
+    }
+    
+    /* navigation button animation */
+  </style>
+  
+  <style>
+    /* Navigation styling*/
+    /* Navigation buttons */
+    .navigation-buttons {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+      padding: 10px;
+    }
+    
+    .navigation-btn,
+    .submit-button {
+      background-color: #222222;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    
+    
+    
+    .navigation-btn:hover {
+      background-color: #45a049;
+    }
+    
+    .back-btn {
+      background-color: #222222;
+      color: white;
+      margin-bottom: 15px;
+      width: 100%;
+      max-width: 100%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      /* ensures it stays above other content */
+    }
+    
+    .back-btn:hover {
+      background-color: #45a049;
+    }
+    
+    
+    /* Style for the page class */
+    .page {
+      display: none;
+    }
+    
+    .page.active {
+      display: block;
+    }
+    
+    /* Make sure our buttons have proper styles */
+    .product-buttons {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    
+    .buttons-row {
+      display: flex;
+      gap: 5px;
+      width: 100%;
+    }
+    
+    .add-to-cart-btn,
+    .buy-now-btn {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: normal;
+      flex: 1;
+    }
+    
+    .add-to-cart-btn {
+      background-color: #1C1C1E;
+      color: white;
+    }
+    
+    .buy-now-btn {
+      background-color: #1C1C1E;
+      color: white;
+    }
+    
+    
+    
+    /* Add these styles inside your existing @media query for mobile */
+    @media (max-width: 768px) {
+      /* Existing mobile styles... */
+      
+      /* Button adjustments for mobile */
+      .product-buttons {
+        margin-top: 5px;
+      }
+      
+      .buttons-row {
+        gap: 3px;
+        /* Reduce gap between buttons */
+      }
+      
+      .add-to-cart-btn,
+      .buy-now-btn {
+        padding: 5px 8px;
+        font-size: 12px;
+      }
+    }
+  </style>
+  
+  <style>
+    /* Side panel that slides in from right */
+    .product-slide-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transform: translateX(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.product-slide-panel.active {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
     
     /* Panel header with close button */
     .panel-header {
@@ -767,7 +902,16 @@
       align-items: center;
       padding: 10px 15px;
       border-bottom: 1px solid #eee;
+      background-color: transparent;
+      /* transparent background */
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(8px);
+      /* optional: makes background behind it look frosted */
     }
+    
+    
     
     .panel-title {
       font-size: 18px;
@@ -778,7 +922,7 @@
     .close-panel {
       width: 30px;
       height: 30px;
-      background-color: #ff5555;
+      background-color: #222222;
       color: white;
       border-radius: 50%;
       display: flex;
@@ -802,7 +946,7 @@
       background-color: #f8f8f8;
     }
     
-    @media (max-width: 480px) {
+    @media (max-width: 720px) {
       .panel-image-container {
         min-height: 40vh;
         /* Smaller minimum height on mobile */
@@ -876,6 +1020,7 @@
       font-weight: bold;
       color: #e53935;
       font-size: 18px;
+      text-align: left;
     }
     
     .panel-options-section {
@@ -938,24 +1083,28 @@
       border-radius: 4px;
     }
     
-
-   .description-title {
-    font-weight: bold;
-    /* margin-bottom: 3px; */ /* Remove or set to 0 */
-    margin-bottom: 3;     /* No space below the title */
-    font-size: 16px;
-  }
-
-  .panel-description {
-   
-    font-size: 15px;
-    color: #333;
-    /* font-weight: medium; */ /* 'medium' is often the default, same as 400. Consider 'normal' or a number like 400 or 500 if needed */
-    font-weight: normal; /* Or 400 */
-    line-height: 1.5;
-  }
-
-
+    
+    .description-title {
+      font-weight: bold;
+      /* margin-bottom: 3px; */
+      /* Remove or set to 0 */
+      margin-bottom: 3;
+      /* No space below the title */
+      font-size: 16px;
+    }
+    
+    .panel-description {
+      
+      font-size: 15px;
+      color: #333;
+      /* font-weight: medium; */
+      /* 'medium' is often the default, same as 400. Consider 'normal' or a number like 400 or 500 if needed */
+      font-weight: normal;
+      /* Or 400 */
+      line-height: 1.5;
+    }
+    
+    
     
     /* Panel add to cart section */
     .panel-actions {
@@ -994,14 +1143,14 @@
     }
     
     .panel-add-to-cart {
-      background-color: #4CAF50;
+      background-color: #1C1C1E;
       color: white;
       border: none;
       padding: 10px 20px;
       margin-left: 10px;
       border-radius: 4px;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: normal;
     }
     
     /* Overlay */
@@ -1020,8 +1169,31 @@
       display: block;
     }
     
+    /* For unavailable sizes in the panel */
+.panel-size-option.unavailable {
+  position: relative;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.panel-size-option .size-cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+/* Ensure panel add to cart button is disabled for unavailable products */
+.product-container.unavailable~.product-panel .panel-add-to-cart {
+  pointer-events: none;
+  opacity: 0.5;
+}
+    
     /* Responsive adjustments */
-    @media (max-width: 480px) {
+    @media (max-width: 720px) {
       .product-slide-panel {
         width: 85%;
       }
@@ -1045,8 +1217,8 @@
     
     .eye-overlay {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 5%;
+      right: 5px;
       width: 40px;
       height: 40px;
       background-color: rgba(0, 0, 0, 0.2);
@@ -1112,18 +1284,7 @@
       }
     }
     
-    /* Even smaller screens */
-    @media (max-width: 480px) {
-      .eye-overlay {
-        width: 28px;
-        height: 28px;
-      }
-      
-      .eye-overlay svg {
-        width: 16px;
-        height: 16px;
-      }
-    }
+    
     
     /* product image eye*/
   </style>
@@ -1252,6 +1413,7 @@
     
     .cart-qty-btn {
       background: #6C757D;
+      color: ghostwhite;
       border: 1px solid #ddd;
       border-radius: 50%;
       width: 24px;
@@ -1319,6 +1481,7 @@
   </style>
   
   <style>
+  //whatsapp button
     //Whatsapp message button pop up
     @keyframes bounce {
       
@@ -1343,6 +1506,42 @@
       animation: bounce 0.8s ease;
     }
     
+    .whatsappButton {
+      position: fixed; 
+      bottom: 180px; 
+      right: 20px; 
+      width: 60px; 
+      height: 60px; 
+ 
+      border-radius: 50%; 
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3); 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      z-index: 1000; 
+      backdrop-filter: blur(8px);
+      cursor: pointer; 
+      transition: transform 0.3s ease;
+      
+    }
+    
+.whatsapp-background {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  
+  /* Glassy styles */
+  background: rgba(255, 255, 255, 0.1);
+  /* light transparent background */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
     /* Add this for the close button on WhatsApp */
     .whatsapp-close {
       position: absolute;
@@ -1350,7 +1549,7 @@
       right: -8px;
       width: 20px;
       height: 20px;
-      background-color: #f44336;
+      background-color: #222;
       color: white;
       border-radius: 50%;
       display: flex;
@@ -1373,6 +1572,76 @@
     }
   </style>
   
+  <style>
+    /* More minimalistic category navigation style */
+    .category-nav,
+    .subcategory-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 5px 0;
+      padding: 0;
+    }
+    
+    /* Button Style for Categories */
+    .category-btn {
+      padding: 6px 12px;
+      background-color: transparent;
+      color: #666;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    
+    .category-btn.active {
+      background-color: #f0f0f0;
+      color: #000;
+      border-color: #ccc;
+    }
+    
+    .category-btn:hover {
+      background-color: #f5f5f5;
+    }
+    
+    /* Subcategory style */
+    .subcategory-nav {
+      margin-top: 0;
+    }
+    
+    .subcategory-group {
+      display: none;
+      width: 100%;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    .subcategory-group.active {
+      display: flex;
+    }
+    
+    .subcategory-btn {
+      padding: 4px 10px;
+      background-color: transparent;
+      color: #666;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      font-size: 0.9em;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    
+    .subcategory-btn.active {
+      background-color: #eee;
+      color: #000;
+    }
+    
+    .subcategory-btn:hover {
+      background-color: #f9f9f9;
+    }
+  </style>
 </head>
 
 <body>
@@ -1380,95 +1649,24 @@
   <div id="products-page" class="page active">
     <!-- All product containers go here -->
     
-    <h1>আপনার শপিং ট্রলি অর্ডার করুন</h1>
-    <div id="validation-message" class="validation-error">Please select at least one product.</div>
+    <!-- Site name-->
+    <h1>H&M CLASIC</h1>
+    
+    <div class="category-nav">
+      <!-- Categories will be added dynamiclly-->
+    </div>
+    <div class="subcategory-nav">
+      <!-- Subcategories will be added dynamiclly-->
+    </div>
+    
+    
     <form id="order-form" action="https://docs.google.com/forms/d/e/1FAIpQLSda7l1jjcN2i6lNFO8t7diVPZli9PqXTJ2YuhOv3zNlD6RZbg/formResponse" method="POST">
       
-
       <div class="products-grid">
-        
-        <!-- Product 1 -->
-        <div class="product-container selected-product" id="product1">
-          
-          <div class="product-image">
-            <img id="image-product1" src="https://i.postimg.cc/L4yn06WD/7-20250125-135522-0006.png" alt="Shopping Trolley">
-          </div>
-          <div class="product-details">
-            <h3 class="product-name">PST_Big</h3>
-            <div class="product-price">
-              <span class="original-price">৳2999</span>
-              <span class="discounted-price">৳1699</span>
-            </div>
-            <div class="quantity-selector">
-              <div class="quantity-btn" onclick="updateQuantity('1', -1)">−</div>
-              <div id="quantity1" class="quantity-display">1</div>
-              <div class="quantity-btn" onclick="updateQuantity('1', 1)">+</div>
-            </div>
-            
-            <div class="color-selector">
-              <label>Colour:</label>
-              <div class="color-options">
-                <div class="color-option selected" style="background-image: url('https://i.postimg.cc/XNrNgWGb/20250118-000012.png');" data-color="Black and white Flower" data-circle-image="https://i.postimg.cc/XNrNgWGb/20250118-000012.png" data-preview-image="https://i.postimg.cc/L4yn06WD/7-20250125-135522-0006.png" onclick="selectColor('product1', 'Black and white Flower', this)"></div>
-                <div class="color-option" style="background-image: url('https://i.postimg.cc/7hFW30Cf/20250118-000038.png');" data-color="Red" data-circle-image="https://i.postimg.cc/7hFW30Cf/20250118-000038.png" data-preview-image="https://i.postimg.cc/7hQhCmzd/5-20250125-135522-0004.png" onclick="selectColor('product1', 'Red', this)"></div>
-                <div class="color-option" style="background-image: url('https://i.postimg.cc/rs0HRQwB/20250117-235908.png');" data-color="Blue" data-circle-image="https://i.postimg.cc/rs0HRQwB/20250117-235908.png" data-preview-image="https://i.postimg.cc/MKNXq3qj/1-20250125-135522-0000.png" onclick="selectColor('product1', 'Blue', this)"></div>
-                <div class="color-option" style="background-image: url('https://i.postimg.cc/DZYDztnQ/20250117-235946.png');" data-color="Black" data-circle-image="https://i.postimg.cc/DZYDztnQ/20250117-235946.png" data-preview-image="https://i.postimg.cc/zXVVmYZr/4-20250125-135522-0003.png" onclick="selectColor('product1', 'Black', this)"></div>
-              </div>
-            </div>
-            
-            <!-- Size selection -->
-            <div class="size-selector">
-              <label>Size:</label>
-              <div class="size-options">
-                <div class="size-option selected" data-size="M" onclick="selectSize('product1', 'M', this)">M</div>
-                <div class="size-option" data-size="L" onclick="selectSize('product1', 'L', this)">L</div>
-                <div class="size-option" data-size="XL" onclick="selectSize('product1', 'XL', this)">XL</div>
-                <div class="size-option" data-size="2XL" onclick="selectSize('product1', '2XL', this)">2XL</div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-        
-        
-        
-        <!-- Product 2 -->
-        <div class="product-container" id="product2">
-          
-          <div class="product-image">
-            <img id="image-product2" src="https://i.postimg.cc/3R1dhKxK/6-20250125-135522-0005.png" alt="Shopping Trolley">
-          </div>
-          <div class="product-details">
-            <h3 class="product-name">PST_PTBL</h3>
-            <div class="product-price">
-              <span class="original-price">৳2799</span>
-              <span class="discounted-price">৳1599</span>
-            </div>
-            <div class="quantity-selector">
-              <div class="quantity-btn" onclick="updateQuantity('2', -1)">−</div>
-              <div id="quantity2" class="quantity-display">1</div>
-              <div class="quantity-btn" onclick="updateQuantity('2', 1)">+</div>
-            </div>
-            
-            
-            
-            <!-- Size selection -->
-            <div class="size-selector">
-              <label>Size:</label>
-              <div class="size-options">
-                <div class="size-option" data-size="M" onclick="selectSize('product2', 'M', this)">M</div>
-                <div class="size-option" data-size="L" onclick="selectSize('product2', 'L', this)">L</div>
-                <div class="size-option" data-size="XL" onclick="selectSize('product2', 'XL', this)">XL</div>
-                <div class="size-option" data-size="2XL" onclick="selectSize('product2', '2XL', this)">2XL</div>
-              </div>
-            </div>
-            
-          </div>
-        </div>
+        <!-- Product's will be added here dynamically-->
+        Loading...
       </div>
   </div>
-  
-  
-  
   
   <!-- Checkout Page -->
   <div id="checkout-page" class="page">
@@ -1477,9 +1675,7 @@
     <!-- Order Summary -->
     <div class="order-summary">
       <h3>Order Summary</h3>
-      <div id="validation-message" class="validation-message">
-        Please select at least one product to proceed.
-      </div>
+      
       <div id="products-summary">
         <!-- Products will be dynamically added here -->
       </div>
@@ -1493,29 +1689,47 @@
       </div>
     </div>
     
-    <!-- Billing Details -->
-    <div class="form-section">
-      <h3>Billing Details</h3>
-      <label for="name">আপনার নাম:</label>
-      <input type="text" id="name" name="entry.1295621272" required>
-      
-      <label for="phone">আপনার মোবাইল নাম্বার:</label>
-      <input type="tel" id="phone" name="entry.1220849713" required>
-      
-      <label for="address">ডেলিভারির জন্য সম্পূর্ণ ঠিকানা:</label>
-      <input type="text" id="address" name="entry.1101791371" required>
-      
-    </div>
     
     <!-- Delivery Location -->
     <div class="form-section">
       <h3>Delivery Location</h3>
       <label for="delivery-location">Select Delivery Location:</label>
-      <select id="delivery-location" name="entry.883422688" onchange="updateOrderSummary()">
+      <select id="delivery-location" name="entry.883422688" onchange="updateCartDisplay()" style="width: 100%; max-width: 100%; box-sizing: border-box;">
         <option value="Inside Dhaka (70 Tk)">ঢাকার ভিতরে — ৭০</option>
         <option value="Outside Dhaka (130 Tk)" selected>ঢাকার বাইরে – ১৩০</option>
       </select>
     </div>
+    
+    
+    
+    <!-- Billing Details -->
+    <div class="form-section">
+      <h3>Billing Details</h3>
+      <label for="name">আপনার নাম:</label>
+      <input type="text" id="name" name="entry.1295621272" required placeholder="..." style="width: 100%; max-width: 100%; box-sizing: border-box;">
+      
+      <label for="phone">আপনার মোবাইল নাম্বার:</label>
+      <input type="tel" id="phone" name="entry.1220849713" required placeholder="01xxxxxxxxx" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+      
+      <label for="address">ডেলিভারির জন্য সম্পূর্ণ ঠিকানা:</label>
+      <input type="text" id="address" name="entry.1101791371" required placeholder="বাসা নম্বর, রোড, থানা, জেলা সহ লিখুন" style="width: 100%; max-width: 100%; box-sizing: border-box;">
+      
+      <label for="special-message">Special Message:</label>
+      <textarea id="special-message" name="entry.xxxxxxxxxx" rows="5" placeholder=" যদি কিছু বিশেষ অনুরোধ থাকে, এখানে লিখুন..." style="
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
+font-family: 'Caveat', Fantasy;
+font-size: 14px;
+color: #333;
+padding: 10px;
+border-radius: 6px;
+border: 1px solid #ccc;
+resize: vertical;
+"></textarea>
+    </div>
+    
+    
     
     <!-- Payment Method -->
     <div class="form-section">
@@ -1528,8 +1742,13 @@
       </select>
     </div>
     
+    
+    <!-- Empty cart validation -->
+    <div id="checkout-validation-error" style="color: red; margin-bottom: 10px; display: none; font-weight: bold; text-align: center;">
+      Please select at least one product to place an order.
+    </div>
     <!-- Submit Button -->
-    <button type="submit" id="submit-button">Place Order</button>
+    <button type="submit" class="submit-button" id="submit-button">Place Order</button>
   </div>
   
   
@@ -1537,12 +1756,12 @@
   
   
   <!-- WhatsApp Button -->
-  <div style="position: fixed; bottom: 180px; right: 20px; width: 60px; height: 60px; background-color: #25D366; border-radius: 50%; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3); display: flex; justify-content: center; align-items: center; z-index: 1000; cursor: pointer; transition: transform 0.3s ease;" id="whatsappButton" onmouseover="this.style.transform='scale(1.1)';" onmouseout="this.style.transform='scale(1)';">
+  <div class="whatsappButton" id="whatsappButton" onmouseover="this.style.transform='scale(1.1)';" onmouseout="this.style.transform='scale(1)';">
     
     <div class="whatsapp-close" onclick="hideWhatsappButton(event)">✕</div>
     
-    <a href="https://wa.me/8801777122287?text=I%20need%20help%20with%20ordering" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; height: 100%; background-color: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Chat" style="width: 35px; height: 35px;">
+    <a href="https://wa.me/8801777122287?text=I%20need%20help%20with%20ordering" target="_blank" rel="noopener noreferrer" class="whatsapp-background">
+      <img src="https://i.postimg.cc/xC57QnzN/whatsapp-icon-3.png" alt="WhatsApp Chat" style="width: 35px; height: 35px;">
     </a>
     
     <div style="position: absolute; bottom: 50%; right: 70px; background-color:white; color: #333333; font-size: 14px; padding: 8px 12px; border-radius: 10px; box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2); opacity: 0; white-space: nowrap; z-index: 999; transform: scale(0.9) translateX(20px); transition: all 0.5s ease;" id="messageBox">
@@ -1558,49 +1777,281 @@
   
   
   <script>
-    // Product configurations
-    const productConfigs = {
-      product1: {
-        name: "PST_Big",
-        basePrice: 1699,
-        originalPrice: 2999,
-        colors: [
-          { name: "Black and white Flower", circleImage: "https://i.postimg.cc/XNrNgWGb/20250118-000012.png", previewImage: "https://i.postimg.cc/L4yn06WD/7-20250125-135522-0006.png" },
-          { name: "Red", circleImage: "https://i.postimg.cc/7hFW30Cf/20250118-000038.png", previewImage: "https://i.postimg.cc/7hQhCmzd/5-20250125-135522-0004.png" },
-          { name: "Blue", circleImage: "https://i.postimg.cc/rs0HRQwB/20250117-235908.png", previewImage: "https://i.postimg.cc/MKNXq3qj/1-20250125-135522-0000.png" },
-          { name: "Black", circleImage: "https://i.postimg.cc/DZYDztnQ/20250117-235946.png", previewImage: "https://i.postimg.cc/zXVVmYZr/4-20250125-135522-0003.png" }
-        ],
-        sizes: ["M", "L", "XL", "2XL"],
-        // --- ADD THIS LINE ---
-        description: '<strong>Fabric:</strong> China Pin Mesh (super smooth, best for summer)<br><strong>GSM:</strong> 170...<br><strong>Print:</strong> High-Density, and Rubber.(Top Quality)'
-        // ---------------------
-      },
-      product2: {
-        name: "PST_PTBL",
-        basePrice: 1599,
-        originalPrice: 2799,
-        colors: [
-          // Note: Product 2 in your original file didn't list colors in config,
-          // but had them in HTML. You should sync these if needed.
-          // Assuming colors from HTML:
-          { name: "Cute Animal", circleImage: "https://i.postimg.cc/3JpKPZFf/20250118-000055.png", previewImage: "https://i.postimg.cc/3R1dhKxK/6-20250125-135522-0005.png" },
-          { name: "Brown with Nature", circleImage: "https://i.postimg.cc/Pf0X37Y8/20250118-000128.png", previewImage: "https://i.postimg.cc/1Xz45L8D/8-20250125-135523-0007.png" }
-        ],
-        sizes: ["M", "L", "XL"],
-        // --- ADD THIS LINE ---
-        description: '<strong>Fabric:</strong> China Pin Mesh (super smooth, best for summer)<br><strong>GSM:</strong> 170...<br><strong>Print:</strong> High-Density, and Rubber.(Top Quality)'
-        // ---------------------
-      }
-      // Add description lines for any other products you have
-    };
+    // Main Product configurations
+    // Enhanced Product configurations
+  const productConfigs = {
+  product1: {
+    id: "product1",
+    name: "Polo Summer - White",
+    category: "polo",
     
-    // Size chart Description Image 
-    const productSizeCharts = {
-      'product1': 'https://i.postimg.cc/JhjpTdw6/Messenger-creation-FDB25-B12-BA5-D-4488-8-A5-F-654533-C51958.jpg',
-      'product2': 'https://i.postimg.cc/JhjpTdw6/Messenger-creation-FDB25-B12-BA5-D-4488-8-A5-F-654533-C51958.jpg',
-      // Add more products as needed
-    };
+    basePrice: 800,
+    originalPrice: 1200,
+    sizes: ["M", "L", "XL"],
+    description: '<strong>Fabric:</strong> China Pin Mesh (super smooth, best for summer)<br><strong>GSM:</strong> 170...<br><strong>Print:</strong> High-Density, and Rubber.(Top Quality)',
+    mainImage: "https://i.postimg.cc/RVfGB6B5/b20d1fb21f28408b979afab1bb0dac860ae09801.avif",
+    colorOptions: [
+    {
+      color: "Main",
+      image: "https://i.postimg.cc/RVfGB6B5/b20d1fb21f28408b979afab1bb0dac860ae09801.avif",
+      previewOnly: true //set false for colour selection
+    },
+    {
+      color: "Full",
+      image: "https://i.postimg.cc/cLBmvpCF/96a027b0b42a6cbe21b46d742b80a4fbc342db55.avif",
+      previewOnly: true //set false for colour selection
+    },
+    {
+      color: "Back",
+      image: "https://i.postimg.cc/rwkjFVVd/a37e355f8a8949deede7773fff4d0a89174f48df.avif",
+      previewOnly: true //set false for colour selection
+    }],
+    sizeChart: 'https://i.postimg.cc/JhjpTdw6/Messenger-creation-FDB25-B12-BA5-D-4488-8-A5-F-654533-C51958.jpg',
+    active: true // Set to false to hide product
+  },
+  
+  
+  // Product 3
+product2: {
+  id: "product2",
+  name: "LOOSE FIT PRINTED - White Doodle",
+  category: "t-shirt",
+  
+  basePrice: 650,
+  originalPrice: null,
+  sizes: ["M","XL", "2XL"],
+  description: '<strong>Fabric:</strong> China Pin Mesh (super smooth, best for summer)<br><strong>GSM:</strong> 170...<br><strong>Print:</strong> High-Density, and Rubber.(Top Quality)',
+  mainImage: "https://i.postimg.cc/mDtN6hwn/3f62e23710f1ed16457101e1c8cfb4b5ef56358b.avif",
+  colorOptions: [
+  {
+    color: "Main",
+    image: "https://i.postimg.cc/mDtN6hwn/3f62e23710f1ed16457101e1c8cfb4b5ef56358b.avif",
+    previewOnly: true
+  },
+  {
+    color: "Front",
+    image: "https://i.postimg.cc/d0Q9r5Tw/680431bc0872f88d3d23c1eab90d602e75d0fc5a.avif",
+    previewOnly: true
+  },
+  ],
+  sizeChart: 'https://i.postimg.cc/JhjpTdw6/Messenger-creation-FDB25-B12-BA5-D-4488-8-A5-F-654533-C51958.jpg',
+  active: true // Set to false to hide product
+},
+
+// Product 2
+product3: {
+  id: "product3",
+  name: "POLO SUMMER - Brown",
+  category: "polo",
+  
+  basePrice: 800,
+  originalPrice: 1200,
+  sizes: ["M", "L", "XL"],
+  description: '<strong>Fabric:</strong> China Pin Mesh (super smooth, best for summer)<br><strong>GSM:</strong> 170...<br><strong>Print:</strong> High-Density, and Rubber.(Top Quality)',
+  mainImage: "https://i.postimg.cc/kM2fTYY5/0bae58545583fd2be92f00b904c29bcbb96d10e8.avif",
+  colorOptions: [
+  {
+    color: "Main",
+    image: "https://i.postimg.cc/kM2fTYY5/0bae58545583fd2be92f00b904c29bcbb96d10e8.avif",
+    previewOnly: true
+  },
+  {
+    color: "Full",
+    image: "https://i.postimg.cc/jCVWcSgy/56f9fbc04bc768ff85c8c2378982ccd8955592a1.avif",
+    previewOnly: true
+  },
+  {
+    color: "Back",
+    image: "https://i.postimg.cc/j2nwy7Xs/5ece295b738a0edb5b97e62ced44d900c794b3f8.avif",
+    previewOnly: true
+  }],
+  sizeChart: 'https://i.postimg.cc/JhjpTdw6/Messenger-creation-FDB25-B12-BA5-D-4488-8-A5-F-654533-C51958.jpg',
+  active: true // Set to false to hide product
+},
+
+  // Product 4
+  product4: {
+    id: "product4",
+    name: "LOOSE FIT PRINTED - White BX",
+    category: "t-shirt",
     
+    basePrice: 550,
+    originalPrice: null,
+    sizes: ["M","L"],
+    description: '<strong>Fabric:</strong> China Pin Mesh (super smooth, best for summer)<br><strong>GSM:</strong> 170...<br><strong>Print:</strong> High-Density, and Rubber.(Top Quality)',
+    mainImage: "https://i.postimg.cc/tJHtk6qN/750d4032fab974dd9fc0993d4914ba648e6c4400.webp",
+    colorOptions: [
+    {
+      color: "Main",
+      image: "https://i.postimg.cc/tJHtk6qN/750d4032fab974dd9fc0993d4914ba648e6c4400.webp",
+      previewOnly: true
+    },
+    {
+      color: "Front",
+      image: "https://i.postimg.cc/XqcKzvXS/f2d952851ed013de6e1500730219610c90e93590.webp",
+      previewOnly: true
+    },
+        {
+      color: "Back",
+      image: "https://i.postimg.cc/QNpqtfm4/9a4ee2267aa9b01bbf80c27539b2056ba777b555.webp",
+      previewOnly: true
+    },
+
+    {
+      color: "Full",
+      image: "https://i.postimg.cc/1tFrDBQz/5cd55da81b4cda8fd32f807e145f949d1d96e8c5.webp",
+      previewOnly: true
+    }],
+    sizeChart: 'https://i.postimg.cc/JhjpTdw6/Messenger-creation-FDB25-B12-BA5-D-4488-8-A5-F-654533-C51958.jpg',
+    active: true // Set to false to hide product
+  },
+  
+  // Product 5
+product5: {
+  id: "product5",
+  name: "LOOSE FIT PRINTED - Tale Orange",
+  category: "t-shirt",
+  
+  basePrice: 650,
+  originalPrice: null,
+  sizes: ["M", "L", "XL", "2XL"],
+  description: '<strong>Fabric:</strong> China Pin Mesh (super smooth, best for summer)<br><strong>GSM:</strong> 170...<br><strong>Print:</strong> High-Density, and Rubber.(Top Quality)',
+  mainImage: "https://i.postimg.cc/NMNB767W/557463be5851231108919dacc5707574a1e5863b.webp",
+  colorOptions: [
+  {
+    color: "Main",
+    image: "https://i.postimg.cc/NMNB767W/557463be5851231108919dacc5707574a1e5863b.webp",
+    previewOnly: true
+  },
+  {
+    color: "Front",
+    image: "https://i.postimg.cc/7hfDB5Kb/1df5320488efd706925ceaba661157d172c5a17d.webp",
+    previewOnly: true
+  },
+  {
+    color: "Back",
+    image: "https://i.postimg.cc/fyps1MPC/71933f98061e99f201935b283bbf9ec5448e2a63.webp",
+    previewOnly: true
+  }],
+  sizeChart: 'https://i.postimg.cc/JhjpTdw6/Messenger-creation-FDB25-B12-BA5-D-4488-8-A5-F-654533-C51958.jpg',
+  active: true // Set to false to hide product
+},
+
+// Product 8
+product8: {
+  id: "product8",
+  name: "LOOSE FIT PRINTED - White Butterfly",
+  category: "t-shirt",
+  
+  basePrice: null,
+  originalPrice: null,
+  sizes: [],
+  description: '<strong>Fabric:</strong> China Pin Mesh (super smooth, best for summer)<br><strong>GSM:</strong> 170...<br><strong>Print:</strong> High-Density, and Rubber.(Top Quality)',
+  mainImage: "https://i.postimg.cc/k4rbn0pg/4fbc908460bdeb9057994cf1ddaeb0f1ba81e306.webp",
+  colorOptions: [
+  {
+    color: "Main",
+    image: "https://i.postimg.cc/k4rbn0pg/4fbc908460bdeb9057994cf1ddaeb0f1ba81e306.webp",
+    previewOnly: true
+  },
+  {
+    color: "Full",
+    image: "https://i.postimg.cc/yN3RC1nG/5100b987fc15eeecfca7d701a1d83aee5831159c.webp",
+    previewOnly: true
+  },
+  {
+    color: "Close",
+    image: "https://i.postimg.cc/4xSc07vt/d0ac7839573bbd72a4d3958b018538ba1a9cf7c5.webp",
+    previewOnly: true
+  },
+    {
+  color: "Full Front",
+  image: "https://i.postimg.cc/XYJFxc54/37cd69a657be573083c87ddf822000246d99bfee.webp",
+  previewOnly: true
+},
+{
+  color: "Full Back",
+  image: "https://i.postimg.cc/MHqfByxk/602a5bf1b362ebcbde8045d60de7bbf8c6bb2538.webp",
+  previewOnly: true
+}
+  ],
+  sizeChart: 'https://i.postimg.cc/JhjpTdw6/Messenger-creation-FDB25-B12-BA5-D-4488-8-A5-F-654533-C51958.jpg',
+  active: true // Set to false to hide product
+},
+
+// Product 6
+product6: {
+  id: "product6",
+  name: "LOOSE FIT PRINTED - White Wave",
+  category: "t-shirt",
+  
+  basePrice: 650,
+  originalPrice: null,
+  sizes: [ "L", "XL", "2XL"],
+  description: '<strong>Fabric:</strong> China Pin Mesh (super smooth, best for summer)<br><strong>GSM:</strong> 170...<br><strong>Print:</strong> High-Density, and Rubber.(Top Quality)',
+  mainImage: "https://i.postimg.cc/0NSzHtyR/5c88449c1cb587c09b8d9de2fa28e9905f6bc5bd.webp",
+  colorOptions: [
+  {
+    color: "Main",
+    image: "https://i.postimg.cc/0NSzHtyR/5c88449c1cb587c09b8d9de2fa28e9905f6bc5bd.webp",
+    previewOnly: true
+  },
+  {
+    color: "Full",
+    image: "https://i.postimg.cc/2SMqGpm7/57d2f85d70c88c36b33324e8853a07d163f6c415.webp",
+    previewOnly: true
+  },
+  {
+    color: "Back",
+    image: "https://i.postimg.cc/Nj59RGh0/fa8fff0ba0d12043e0ce7202665414ef32ec35eb.webp",
+    previewOnly: true
+  },
+    {
+  color: "Full",
+  image: "https://i.postimg.cc/3JrDJCnm/9423109463d56dc226832f3b4ed820121e190929.webp",
+  previewOnly: true
+}
+  ],
+  sizeChart: 'https://i.postimg.cc/JhjpTdw6/Messenger-creation-FDB25-B12-BA5-D-4488-8-A5-F-654533-C51958.jpg',
+  active: true // Set to false to hide product
+},
+
+// Product 7
+product7: {
+  id: "product7",
+  name: "LOOSE FIT PRINTED - White News",
+  category: "t-shirt",
+  
+  basePrice: 650,
+  originalPrice: null,
+  sizes: [ "XL", "2XL"],
+  description: '<strong>Fabric:</strong> China Pin Mesh (super smooth, best for summer)<br><strong>GSM:</strong> 170...<br><strong>Print:</strong> High-Density, and Rubber.(Top Quality)',
+  mainImage: "https://i.postimg.cc/zXdHLbcM/3feb771f7a753adf3dcc80a7ec3c47e194f33472.webp",
+  colorOptions: [
+  {
+    color: "Main",
+    image: "https://i.postimg.cc/zXdHLbcM/3feb771f7a753adf3dcc80a7ec3c47e194f33472.webp",
+    previewOnly: true
+  },
+  {
+    color: "Full",
+    image: "https://i.postimg.cc/nVGDJwYn/e1351af9a613e2d1ba8afc9de86cd22c70fac61d.webp",
+    previewOnly: true
+  },
+  {
+    color: "Back",
+    image: "https://i.postimg.cc/QCm9JHxF/9251055735cb1591f7bbbf69f651d2bbb001a577.webp",
+    previewOnly: true
+  }],
+  sizeChart: 'https://i.postimg.cc/JhjpTdw6/Messenger-creation-FDB25-B12-BA5-D-4488-8-A5-F-654533-C51958.jpg',
+  active: true // Set to false to hide product
+},
+
+
+  // Add other products here with the same structure
+};
+
+
     // Delivery charges configuration
     const deliveryCharges = {
       "Inside Dhaka (70 Tk)": 70,
@@ -1611,6 +2062,345 @@
   </script>
   
   <script>
+    // Dynamic product generation
+    // Add this function after your productConfigs declaration
+    function generateProductsHTML() {
+      const productsGrid = document.querySelector('.products-grid');
+      if (!productsGrid) return;
+      
+      // Clear existing products
+      productsGrid.innerHTML = '';
+      
+      // Loop through all products in config
+      Object.keys(productConfigs).forEach(productId => {
+        const config = productConfigs[productId];
+        
+        // Skip inactive products
+        if (config.active === false) return;
+        
+        // Create product container with availability check
+const productContainer = document.createElement('div');
+productContainer.className = 'product-container';
+productContainer.id = productId;
+
+// Check if product has valid price data
+const isPriceAvailable = config.basePrice !== null && config.basePrice !== undefined;
+if (!isPriceAvailable) {
+  productContainer.classList.add('unavailable');
+  productContainer.id = `unavailable-${productId}`;
+}
+        
+        // Add data attributes for filtering
+        if (config.category) {
+          productContainer.setAttribute('data-category', config.category);
+        }
+        if (config.subCategory) {
+          productContainer.setAttribute('data-subcategory', config.subCategory);
+        }
+        
+        // Then modify the price display part to handle null prices:
+// Replace the price HTML with:
+let priceHTML = '';
+if (isPriceAvailable) {
+  priceHTML = `
+    ${config.originalPrice ? `<span class="original-price">৳${config.originalPrice}</span>` : ''}
+    <span class="discounted-price">৳${config.basePrice}</span>
+  `;
+} else {
+  priceHTML = `<span class="unavailable-price">SOLD OUT!!!</span>`;
+}
+        
+        // Generate color options HTML
+        let colorOptionsHTML = '';
+        config.colorOptions.forEach((colorOpt, index) => {
+          const isSelected = index === 0 ? 'selected' : '';
+          const previewOnlyAttr = colorOpt.previewOnly ? ', true' : '';
+          
+          colorOptionsHTML += `
+        <div class="color-option ${isSelected}" 
+             style="background-image: url('${colorOpt.image}');" 
+             data-color="${colorOpt.color}" 
+             onclick="selectColor('${productId}', null, this${previewOnlyAttr})"></div>
+      `;
+        });
+        
+        // Modify the size options HTML generation in the generateProductsHTML function
+// Replace the current size options HTML generation with:
+
+// Generate size options HTML - show all possible sizes with unavailable ones crossed out
+let sizeOptionsHTML = '';
+const allPossibleSizes = ["M", "L", "XL", "2XL"]; // Define all possible sizes
+allPossibleSizes.forEach(size => {
+  const isAvailable = config.sizes.includes(size);
+  const availabilityClass = isAvailable ? 'available' : 'unavailable';
+  const clickHandler = isAvailable ?
+    `onclick="selectSize('${productId}', '${size}')"` :
+    `class="disabled"`;
+  
+  sizeOptionsHTML += `
+    <div class="size-option ${availabilityClass}" data-size="${size}" ${clickHandler}>
+      ${size}${!isAvailable ? '<span class="size-cross">✕</span>' : ''}
+    </div>
+  `;
+});
+        
+        // Create product HTML
+        productContainer.innerHTML = `
+      <div class="product-image">
+        <img id="image-${productId}" src="${config.mainImage}" alt="${config.name}">
+      </div>
+      <div class="product-details">
+        <div class="color-selector">
+          <div class="color-options">
+            ${colorOptionsHTML}
+          </div>
+        </div>
+        <h3 class="product-name">${config.name}</h3>
+       <div class="product-price">
+  ${priceHTML}
+</div>
+        <div class="quantity-selector">
+          <div class="quantity-btn" onclick="updateQuantity('${productId.replace('product', '')}', -1)">−</div>
+          <div id="quantity${productId.replace('product', '')}" class="quantity-display">1</div>
+          <div class="quantity-btn" onclick="updateQuantity('${productId.replace('product', '')}', 1)">+</div>
+        </div>
+        <div class="size-selector">
+          <label>Size:</label>
+          <div class="size-options">
+            ${sizeOptionsHTML}
+          </div>
+        </div>
+        <div class="product-buttons">
+          <div class="buttons-row">
+            <button type="button" class="add-to-cart-btn" onclick="addToCart('${productId}')">
+              Add to Cart
+            </button>
+            <button type="button" class="buy-now-btn" onclick="buyNow('${productId}')">
+              Buy Now
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+        
+        // Add to products grid
+        productsGrid.appendChild(productContainer);
+      });
+      
+      // Initialize any required features for the new products
+      addViewDetailsIcons();
+    }
+  </script>
+  
+  
+  <script>
+    // Add this function to extract categories from your product configurations
+    function extractCategories() {
+      // Create structure to hold categories and their subcategories
+      const categories = {
+        all: { name: "All", subcategories: {} }
+      };
+      
+      // Process each product to build the category structure
+      Object.values(productConfigs).forEach(product => {
+        // Skip inactive products
+        if (product.active === false) return;
+        
+        const category = product.category;
+        const subCategory = product.subCategory;
+        
+        // Add category if it doesn't exist
+        if (category && !categories[category]) {
+          // Convert category ID to display name (e.g., "mens" -> "Men's")
+          const displayName = category.charAt(0).toUpperCase() + category.slice(1);
+          categories[category] = {
+            name: displayName,
+            subcategories: {}
+          };
+        }
+        
+        // Add subcategory if it exists and doesn't already exist in the category
+        if (category && subCategory && !categories[category].subcategories[subCategory]) {
+          // Convert subcategory ID to display name (e.g., "tshirt" -> "T-shirt")
+          const displayName = subCategory.charAt(0).toUpperCase() + subCategory.slice(1);
+          categories[category].subcategories[subCategory] = displayName;
+        }
+      });
+      
+      return categories;
+    }
+    
+    // Function to generate category and subcategory navigation
+    function generateCategoryNavigation() {
+      const categories = extractCategories();
+      
+      // Generate main category navigation
+      const categoryNav = document.querySelector('.category-nav');
+      if (categoryNav) {
+        categoryNav.innerHTML = ''; // Clear existing content
+        
+        // Add "All" category first
+        const allBtn = document.createElement('div');
+        allBtn.className = 'category-btn active';
+        allBtn.setAttribute('data-category', 'all');
+        allBtn.textContent = 'All';
+        categoryNav.appendChild(allBtn);
+        
+        // Add other categories
+        Object.keys(categories).forEach(catKey => {
+          if (catKey !== 'all') {
+            const btn = document.createElement('div');
+            btn.className = 'category-btn';
+            btn.setAttribute('data-category', catKey);
+            btn.textContent = categories[catKey].name;
+            categoryNav.appendChild(btn);
+          }
+        });
+      }
+      
+      // Generate subcategory navigation
+      const subcategoryNav = document.querySelector('.subcategory-nav');
+      if (subcategoryNav) {
+        subcategoryNav.innerHTML = ''; // Clear existing content
+        
+        // For each category (except "all"), create a subcategory group
+        Object.keys(categories).forEach(catKey => {
+          if (catKey !== 'all') {
+            const subcategories = categories[catKey].subcategories;
+            
+            // Only create subcategory group if there are subcategories
+            if (Object.keys(subcategories).length > 0) {
+              const group = document.createElement('div');
+              group.className = 'subcategory-group';
+              group.setAttribute('data-parent', catKey);
+              
+              // Add subcategories to the group
+              Object.keys(subcategories).forEach(subKey => {
+                const btn = document.createElement('div');
+                btn.className = 'subcategory-btn';
+                btn.setAttribute('data-subcategory', subKey);
+                btn.textContent = subcategories[subKey];
+                group.appendChild(btn);
+              });
+              
+              subcategoryNav.appendChild(group);
+            }
+          }
+        });
+      }
+      
+      // Add event listeners after generating the navigation
+      initializeCategoryEventListeners();
+    }
+    
+    // Function to initialize category event listeners
+    function initializeCategoryEventListeners() {
+      // Add event listeners to main category buttons
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Update active state
+          document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          const category = this.getAttribute('data-category');
+          
+          // Handle subcategory groups visibility
+          if (category === 'all') {
+            // When "all" is clicked, hide all subcategory groups
+            document.querySelectorAll('.subcategory-group').forEach(group => {
+              group.classList.remove('active');
+            });
+          } else {
+            // For specific categories, show only relevant subcategory group
+            document.querySelectorAll('.subcategory-group').forEach(group => {
+              if (group.getAttribute('data-parent') === category) {
+                group.classList.add('active');
+              } else {
+                group.classList.remove('active');
+              }
+            });
+          }
+          
+          // Filter products by category
+          filterProducts(category, 'all');
+        });
+      });
+      
+      // Add event listeners to subcategory buttons
+      document.querySelectorAll('.subcategory-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Get parent category and clicked subcategory
+          const parentGroup = this.closest('.subcategory-group');
+          const category = parentGroup.getAttribute('data-parent');
+          const subcategory = this.getAttribute('data-subcategory');
+          
+          // Update active state for subcategory
+          parentGroup.querySelectorAll('.subcategory-btn').forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Filter products by category and subcategory
+          filterProducts(category, subcategory);
+        });
+      });
+    }
+    
+    // Function to filter products by category and subcategory
+// Function to filter products by category and subcategory
+function filterProducts(category, subcategory) {
+  const productContainers = document.querySelectorAll('.product-container');
+  
+  productContainers.forEach(container => {
+    let originalProductId = container.id; // Get the current ID of the container
+    
+    // Check if the ID starts with 'unavailable-' and extract the original ID if it does
+    if (originalProductId.startsWith('unavailable-')) {
+      originalProductId = originalProductId.replace('unavailable-', '');
+    }
+    
+    // Now, look up the product configuration using the potentially corrected original ID
+    const productConfig = productConfigs[originalProductId];
+    
+    // If config is still not found (e.g., bad ID), hide it and log an error
+    if (!productConfig) {
+      console.error(`Config not found for original ID: ${originalProductId} (derived from container ID: ${container.id}). Hiding container.`);
+      container.style.display = 'none';
+      return; // Skip to the next container
+    }
+    
+    // --- The rest of the filtering logic remains the same ---
+    let shouldShow = false;
+    
+    // Handle "all" category
+    if (category === 'all') {
+      shouldShow = true;
+    }
+    // Handle specific category with "all" subcategory
+    else if (category === productConfig.category && subcategory === 'all') {
+      shouldShow = true;
+    }
+    // Handle specific category and subcategory
+    else if (category === productConfig.category && subcategory === productConfig.subCategory) {
+      shouldShow = true;
+    }
+    
+    // Show/hide product based on the filtering logic
+    container.style.display = shouldShow ? 'flex' : 'none';
+  });
+}    
+    // Initialize the page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Generate navigation first (before products)
+      generateCategoryNavigation();
+      
+      // Generate product HTML
+      generateProductsHTML();
+      
+      // Any other initialization remains the same...
+    });
+  </script>
+  
+  <script>
+    // Page Navigation 
     // Initialize when the page loads
     document.addEventListener('DOMContentLoaded', function() {
       initializeCart();
@@ -1622,48 +2412,45 @@
       // Initialize the app with proper page setup
       initializeApp();
       
+      // After products are generated
+      initializeCategoryNavigation();
+      
       // Eye at product image
       // Add this line at the end of the function
       addViewDetailsIcons();
     });
     
-    // Function to navigate between pages
-    // Updated to hive cart button on checkout page 
-    function navigateToPage(pageId) {
-      // Hide all pages
-      document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-      });
-      
-      // Show the requested page
-      document.getElementById(pageId).classList.add('active');
-      
-      // Scroll to top when changing pages
-      window.scrollTo(0, 0);
-      
-      // Update the URL hash for better navigation
-      window.location.hash = pageId;
-      
-      // Update floating cart visibility based on current page
-      updateFloatingCart();
-    }
     
-    
-    
-    // Function to handle hash-based navigation
-    function handleHashNavigation() {
-      const hash = window.location.hash.substr(1);
-      if (hash === 'checkout-page' || hash === 'products-page') {
-        navigateToPage(hash);
-      } else {
-        // Default to products page if no valid hash
-        navigateToPage('products-page');
-      }
-    }
-    
-    // Add to Cart functionality
-    // Add to Cart functionality Modify the addToCart function to show a simpler notification message
-    
+    // Replace the complex navigation handling with the simpler approach from Fix 6
+function navigateToPage(pageId) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+  
+  // Show the requested page
+  document.getElementById(pageId).classList.add('active');
+  
+    // Scroll to top when changing pages
+  window.scrollTo(0, 0);
+  
+  // Update the URL hash for better navigation
+  window.location.hash = pageId;
+  
+  // Update floating cart visibility based on current page
+  updateFloatingCart();
+}
+
+// Function to handle hash-based navigation
+function handleHashNavigation() {
+  const hash = window.location.hash.substr(1);
+  if (hash === 'checkout-page' || hash === 'products-page') {
+    navigateToPage(hash);
+  } else {
+    // Default to products page if no valid hash
+    navigateToPage('products-page');
+  }
+}
     
     
     
@@ -1675,18 +2462,9 @@
       if (!document.getElementById('cart-notification')) {
         const notification = document.createElement('div');
         notification.id = 'cart-notification';
-        notification.style.position = 'fixed';
-        notification.style.bottom = '20px';
-        notification.style.right = '20px';
-        notification.style.padding = '10px 20px';
-        notification.style.backgroundColor = '#4CAF50';
-        notification.style.color = 'white';
-        notification.style.borderRadius = '5px';
-        notification.style.zIndex = '1000';
-        notification.style.opacity = '0';
-        notification.style.transition = 'opacity 0.3s ease-in-out';
         document.body.appendChild(notification);
       }
+      
       
       // Show notification with message
       const notification = document.getElementById('cart-notification');
@@ -1707,39 +2485,39 @@
     // Update floating cart button
     // Update floating cart button to not show in the check out page
     // Update floating cart button to not show total price
-    function updateFloatingCart() {
-      const floatingCart = document.getElementById('floating-cart');
-      if (!floatingCart) return;
-      
-      // Get current page
-      const isCheckoutPage = document.getElementById('checkout-page').classList.contains('active');
-      
-      // If on checkout page, hide floating cart regardless of content
-      if (isCheckoutPage) {
-        floatingCart.style.display = 'none';
-        return;
-      }
-      
-      // Calculate total items
-      let totalItems = 0;
-      cart.forEach(item => {
-        totalItems += item.quantity;
-      });
-      
-      // Update cart count
-      const cartCount = floatingCart.querySelector('.cart-count');
-      cartCount.textContent = totalItems;
-      
-      // Update cart preview - ONLY show number of items, not price
-      const cartPreview = floatingCart.querySelector('.cart-preview');
-      if (cartPreview) {
-        cartPreview.textContent = `${totalItems} items`;
-      }
-      
-      // Show/hide floating cart based on cart content
-      floatingCart.style.display = cart.length > 0 ? 'flex' : 'none';
-    }
-    
+    // Update floating cart button to not show in the check out page
+function updateFloatingCart() {
+  const floatingCart = document.getElementById('floating-cart');
+  if (!floatingCart) return;
+  
+  // Get current page
+  const isCheckoutPage = document.getElementById('checkout-page').classList.contains('active');
+  
+  // If on checkout page, hide floating cart regardless of content
+  if (isCheckoutPage) {
+    floatingCart.style.display = 'none';
+    return;
+  }
+  
+  // Calculate total items
+  let totalItems = 0;
+  cart.forEach(item => {
+    totalItems += item.quantity;
+  });
+  
+  // Update cart count
+  const cartCount = floatingCart.querySelector('.cart-count');
+  cartCount.textContent = totalItems;
+  
+  // Update cart preview - ONLY show number of items, not price
+  const cartPreview = floatingCart.querySelector('.cart-preview');
+  if (cartPreview) {
+    cartPreview.textContent = `${totalItems} items`;
+  }
+  
+  // Show/hide floating cart based on cart content
+  floatingCart.style.display = cart.length > 0 ? 'flex' : 'none';
+}
     
     
     
@@ -1829,37 +2607,7 @@
         
         // Add style for floating cart
         const style = document.createElement('style');
-        style.innerHTML = `
-      .floating-cart {
-        position: fixed;
-        bottom: 100px;
-        right: 20px;
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 15px;
-        border-radius: 50px;
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        z-index: 999;
-        box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-      }
-      .cart-count {
-        background-color: white;
-        color: #4CAF50;
-        border-radius: 50%;
-        width: 20px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        margin-right: 5px;
-      }
-      .cart-icon {
-        margin-right: 5px;
-      }
-    `;
+        
         document.head.appendChild(style);
       }
       
@@ -1884,36 +2632,41 @@
       // Start with an empty cart
       cart = [];
       
-      // Get all product IDs from the config or find all product containers
-      const productIds = Object.keys(productConfigs); // Or querySelectorAll('.product-container')
+      // Get all product IDs from the config
+      const productIds = Object.keys(productConfigs);
       
       productIds.forEach(productId => {
         const productElement = document.getElementById(productId);
         if (productElement) {
           const config = productConfigs[productId];
           
-          // --- Default Color Selection Logic (Example) ---
+          // Handle color circles
           const colorOptions = productElement.querySelectorAll('.color-option');
-          if (config && config.colors && config.colors.length > 0 && colorOptions.length > 0) {
-            // Deselect all first
+          const previewOnlyColors = productElement.querySelectorAll('.color-option[data-preview-only]');
+          
+          // Check if the first color option is preview-only by checking its onclick attribute
+          const firstColorOption = colorOptions[0];
+          if (firstColorOption && firstColorOption.getAttribute('onclick').includes(', true)')) {
+            // Don't auto-select preview-only colors
             colorOptions.forEach(option => option.classList.remove('selected'));
-            // Select the first one
+          }
+          // If there are regular color options, select the first one as default
+          else if (colorOptions.length > 0 && config && config.colors && config.colors.length > 0) {
+            colorOptions.forEach(option => option.classList.remove('selected'));
             colorOptions[0].classList.add('selected');
-            // Ensure data-color attribute is set (optional, good practice)
             if (!colorOptions[0].getAttribute('data-color') && config.colors[0].name) {
               colorOptions[0].setAttribute('data-color', config.colors[0].name);
             }
           }
           
-          // --- Default Size Deselection Logic (Example) ---
+          // Deselect all sizes by default
           productElement.querySelectorAll('.size-option').forEach(option => {
             option.classList.remove('selected');
           });
         }
       });
       
-      
-      // Remove all checkboxes completely (This part is fine as is)
+      // Remove all checkboxes
       document.querySelectorAll('.product-checkbox').forEach(checkbox => {
         checkbox.remove();
       });
@@ -2079,81 +2832,134 @@
     
     
     // Handle color selection
-    function selectColor(productId, color, element) {
-      // Update color options visual state
-      const colorOptions = element.parentElement.getElementsByClassName('color-option');
-      Array.from(colorOptions).forEach(option => option.classList.remove('selected'));
-      element.classList.add('selected');
-      
-      // Update product image
-      const productImage = document.getElementById(`image-${productId}`);
-      if (productImage) {
-        productImage.src = element.getAttribute('data-preview-image');
+    // 12 Apr update to handle colour selection and multiple image
+    // 1: For color selection with image update:
+    //<div onclick="selectColor('product1', 'Black and white Flower', this)">
+    // 2: For image preview only:
+    //<div onclick="selectColor('product1', null, this, true)">
+    // _-_
+    //If preview image should be different
+    //Include:    data-preview-image="https:"
+    // Other wise don't need to include data-preview-image
+    function selectColor(productId, color, element, isImageOnly = false) {
+      if (element) {
+        // Get background image URL from style
+        const bgImage = element.style.backgroundImage.replace(/url\(['"](.+)['"]\)/, '$1');
+        element.setAttribute('data-circle-image', bgImage);
+        
+        
+        
+        // Update product image - use preview image if specified, otherwise use background image
+        const productImage = document.getElementById(`image-${productId}`);
+        if (productImage) {
+          const previewImage = element.getAttribute('data-preview-image') || bgImage;
+          productImage.src = previewImage;
+        }
+        
+        if (!isImageOnly) {
+          const colorOptions = element.parentElement.getElementsByClassName('color-option');
+          Array.from(colorOptions).forEach(option => option.classList.remove('selected'));
+          element.classList.add('selected');
+          
+          if (selectedProducts && selectedProducts[productId]) {
+            selectedProducts[productId].color = color;
+            updateOrderSummary();
+          }
+        }
       }
-      
-      // Update selected products state
-      selectedProducts[productId].color = color;
-      updateOrderSummary();
     }
+    
     
     
     
     
     // Handle size selection
-    function selectSize(sizeElement, productId) {
-      // Remove selected class from all size options in this product
+    function selectSize(productId, size) {
       const product = document.getElementById(productId);
-      product.querySelectorAll('.size-option').forEach(option => {
-        option.classList.remove('selected');
-      });
+      const sizeOptions = product.querySelectorAll('.size-option');
       
-      // Add selected class to clicked size option
-      sizeElement.classList.add('selected');
+      sizeOptions.forEach(option => {
+        option.classList.remove('selected');
+        if (option.getAttribute('data-size') === size) {
+          option.classList.add('selected');
+        }
+      });
     }
     
+    
+    
+    
+    
+    // Handle form submission
     // Handle form submission
     document.addEventListener('DOMContentLoaded', function() {
       const orderForm = document.getElementById('order-form');
-      if (orderForm) {
+      const checkoutValidationError = document.getElementById('checkout-validation-error'); // Get reference to the new element
+      
+      if (orderForm && checkoutValidationError) { // Check if both exist
         orderForm.addEventListener('submit', function(e) {
-          e.preventDefault();
+          e.preventDefault(); // Prevent default submission immediately
           
           // Validate cart
           if (cart.length === 0) {
-            document.getElementById('validation-message').style.display = 'block';
-            return false;
+            checkoutValidationError.style.display = 'block'; // Show the specific message
+            // Optional: Scroll to the message so the user sees it
+            checkoutValidationError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return false; // Stop the submission process
+          } else {
+            // If cart is NOT empty, ensure the message is hidden
+            checkoutValidationError.style.display = 'none';
           }
           
+          // If validation passed, proceed with creating FormData and submitting
           const formData = new FormData(this);
           
           // Create formatted product summary for Google Forms
           let productSummary = '';
           cart.forEach((item, index) => {
             const productConfig = productConfigs[item.productId];
-            productSummary += `Item ${index + 1}: ${productConfig.name}, Quantity=${item.quantity}, Color=${item.color}, Size=${item.size}\n`;
+            productSummary += `Item ${index + 1}: ${productConfig.name},  Quantity = ${item.quantity},  Color = ${item.color},  Size = ${item.size}\n`;
           });
           
-          // Add product summary and total to form data
-          formData.append('entry.764895570', productSummary.trim());
-          formData.append('entry.18022865', document.getElementById('total-value').textContent);
+          // Calculate total from summary for accuracy
+          let calculatedSubtotal = 0;
+          cart.forEach(item => calculatedSubtotal += item.price * item.quantity);
+          const deliveryLocation = document.getElementById('delivery-location')?.value;
+          const deliveryCharge = deliveryCharges[deliveryLocation] || 0;
+          const calculatedTotal = calculatedSubtotal + deliveryCharge;
           
+          
+          // Add product summary and total to form data
+          formData.append('entry.764895570', productSummary.trim()); // Product Details
+          // formData.append('entry.18022865', document.getElementById('total-value').textContent); // Total from display (less reliable)
+          formData.append('entry.18022865', `${calculatedTotal} Tk`); // Calculated Total (more reliable)
+          
+          
+          // --- Google Sheet Submission ---
           fetch('https://docs.google.com/forms/d/e/1FAIpQLSda7l1jjcN2i6lNFO8t7diVPZli9PqXTJ2YuhOv3zNlD6RZbg/formResponse', {
               method: 'POST',
               body: formData,
-              mode: 'no-cors'
+              mode: 'no-cors' // Important for Google Forms
             })
             .then(() => {
-              // Open thank you page in new window
-              window.open('https://sites.google.com/view/order-with-side-cart/home', '_blank');
+              console.log('Form submitted (no-cors). Opening thank you page.');
+              // Optionally clear cart after successful submission attempt
+              // cart = [];
+              // updateCartDisplay();
+              // updateFloatingCart();
+              window.open('https://sites.google.com/view/order-with-side-cart/home', '_blank'); // Open thank you page
             })
             .catch(error => {
-              // Open thank you page in new window even if there's an error
+              console.error('Error submitting form (or fetch failed in no-cors mode):', error);
+              // Still attempt to open thank you page even on error
               window.open('https://sites.google.com/view/order-with-side-cart/home', '_blank');
             });
         });
+      } else {
+        if (!orderForm) console.error("Order form not found");
+        if (!checkoutValidationError) console.error("Checkout validation error element not found");
       }
     });
-    
     
     
     
@@ -2250,6 +3056,9 @@
     
     // Update initializeApp to call our integration setup
     function initializeApp() {
+      // Generate products HTML first
+      generateProductsHTML();
+      
       // Initialize cart
       initializeCart();
       
@@ -2290,7 +3099,7 @@
       const backToProductsBtn = document.createElement('button');
       backToProductsBtn.type = 'button';
       backToProductsBtn.className = 'navigation-btn back-btn';
-      backToProductsBtn.textContent = '← Continue Shopping';
+      backToProductsBtn.textContent = '← Go Back';
       backToProductsBtn.addEventListener('click', () => navigateToPage('products-page'));
       checkoutPage.insertBefore(backToProductsBtn, checkoutPage.firstChild);
       
@@ -2303,7 +3112,7 @@
       checkoutButtonContainer.className = 'navigation-buttons';
       checkoutButtonContainer.innerHTML = `
       <button type="button" class="navigation-btn checkout-btn">
-        Proceed to Checkout
+        Proceed to Checkout  🛒
       </button>
     `;
       productsPage.appendChild(checkoutButtonContainer);
@@ -2315,95 +3124,7 @@
       // Add CSS for navigation buttons
       const navStyles = document.createElement('style');
       navStyles.id = 'navigation-styles';
-      navStyles.innerHTML = `
-      .navigation-btn {
-        padding: 10px 20px;
-        margin: 10px 0;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-      }
-      .back-btn {
-        background-color: #888;
-      }
-      .navigation-buttons {
-        text-align: center;
-        margin: 20px 0;
-      }
-      /* Style for the page class */
-      .page {
-        display: none;
-      }
-      .page.active {
-        display: block;
-      }
-      /* Make sure our buttons have proper styles */
-      .product-buttons {
-        display: flex;
-        flex-direction: column;
-        margin-top: 10px;
-      }
-     
-      .buttons-row { display: flex; gap: 5px; width: 100%; }
-     
-      .add-to-cart-btn, .buy-now-btn {
-        padding: 8px 15px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: bold;
-        flex: 1;
-      }
-      .add-to-cart-btn {
-        background-color: #4CAF50;
-        color: white;
-      }
-      .buy-now-btn {
-        background-color: #ff9800;
-        color: white;
-      }
       
-      
-      
-      /* Add these styles inside your existing @media query for mobile */
-@media (max-width: 768px) {
-/* Existing mobile styles... */
-
-/* Button adjustments for mobile */
-.product-buttons {
-margin-top: 5px;
-}
-
-.buttons-row {
-gap: 5px; /* Reduce gap between buttons */
-}
-
-.add-to-cart-btn, .buy-now-btn {
-padding: 5px 8px;
-font-size: 11px;
-}
-}
-
-/* Further adjustments for very small screens */
-@media (max-width: 480px) {
-/* Existing very small screen styles... */
-
-.add-to-cart-btn, .buy-now-btn {
-padding: 5px 8px;
-font-size: 11px;
-}
-
-/* Stack buttons if needed on very small screens */
-.buttons-row {
-flex-direction: row;
-gap: 1px;
-}
-}
-      
-    `;
       
       document.head.appendChild(navStyles);
       
@@ -2417,6 +3138,12 @@ gap: 1px;
       window.addEventListener('hashchange', handleHashNavigation);
     }
     
+    
+    
+    
+    
+    
+    
     // Update to the addToCart function to handle both systems
     // Update to the addToCart function to handle both systems
     function addToCart(productId) {
@@ -2424,9 +3151,10 @@ gap: 1px;
       
       // Get the selected color element
       const selectedColorElement = product.querySelector('.color-option.selected');
-      // No longer require color selection
       let selectedColor = "";
-      if (selectedColorElement) {
+      
+      // Only get color if the element is not marked as preview-only
+      if (selectedColorElement && !selectedColorElement.hasAttribute('data-preview-only')) {
         selectedColor = selectedColorElement.getAttribute('data-color');
       }
       
@@ -2441,15 +3169,13 @@ gap: 1px;
       
       // Handle the case when size is not selected
       if (!selectedSizeElement) {
-        // Create and insert size warning message
         const sizeWarning = document.createElement('div');
         sizeWarning.className = 'size-warning';
         sizeWarning.textContent = 'Please select a size';
         sizeWarning.style.color = 'blue';
         sizeWarning.style.marginTop = '5px';
-        sizeWarning.style.fontWeight = 'reguler';
+        sizeWarning.style.fontWeight = 'regular';
         
-        // Insert before the product buttons
         const buttonContainer = product.querySelector('.product-buttons');
         buttonContainer.parentNode.insertBefore(sizeWarning, buttonContainer);
         return;
@@ -2462,14 +3188,14 @@ gap: 1px;
       const quantityElement = document.getElementById(`quantity${productNum}`);
       const quantity = parseInt(quantityElement.textContent);
       
-      // Get the base image if no color is selected
+      // Get the current displayed image
       let productImage = product.querySelector('.product-image img').src;
       
       // Create new cart item
       const cartItem = {
         productId: productId,
         quantity: quantity,
-        color: selectedColor,
+        color: selectedColor, // This will be empty for preview-only products
         size: selectedSize,
         price: productConfigs[productId].basePrice,
         itemId: generateItemId(),
@@ -2574,23 +3300,48 @@ gap: 1px;
       
       
       // Function to collect all product images
+      // --- Replace the entire function ---
       function getProductImages(productId) {
-        const mainImage = document.querySelector(`#${productId} .product-image img`).src;
-        const colorOptions = document.querySelectorAll(`#${productId} .color-option`);
+        const productContainer = document.getElementById(productId);
+        if (!productContainer) return []; // Safety check
         
-        // Start with the main image
-        const images = [mainImage];
+        const mainImageElement = productContainer.querySelector('.product-image img');
+        const mainImageSrc = mainImageElement ? mainImageElement.src : null;
         
-        // Add all color preview images if they're different from what's already in the array
+        const colorOptions = productContainer.querySelectorAll('.color-option');
+        const images = [];
+        
+        if (mainImageSrc) {
+          images.push(mainImageSrc); // Start with main image if it exists
+        }
+        
         colorOptions.forEach(option => {
-          const previewImage = option.getAttribute('data-preview-image');
-          if (previewImage && !images.includes(previewImage)) {
-            images.push(previewImage);
+          // Check if this is a preview-only option
+          const isPreviewOnly = option.getAttribute('onclick').includes(', true)');
+          
+          // Try to extract background-image URL
+          const bgImageMatch = option.style.backgroundImage.match(/url\(['"]?(.+?)['"]?\)/);
+          const bgImage = bgImageMatch ? bgImageMatch[1] : null;
+          
+          if (isPreviewOnly) {
+            // For preview-only, use background image directly
+            if (bgImage && !images.includes(bgImage)) {
+              images.push(bgImage);
+            }
+          } else {
+            // For color selection, use data-preview-image if available
+            const previewImage = option.getAttribute('data-preview-image') || bgImage;
+            if (previewImage && !images.includes(previewImage)) {
+              images.push(previewImage);
+            }
           }
         });
         
+        console.log(`Images collected for ${productId}:`, images.length, images);
+        
         return images;
       }
+      // --- End of replaced function ---
       
       // Function to update the panel with the current image
       function updatePanelImage() {
@@ -2598,20 +3349,22 @@ gap: 1px;
       }
       
       
-      
-      
-      
-      
       // Function to populate color options
       // Function to populate color options
       function populateColorOptions(productId) {
+        const panelColorOptions = document.querySelector('.panel-color-options');
+        
         // Clear existing options
         panelColorOptions.innerHTML = '';
         
         // Get color options from the main page
         const colorOptions = document.querySelectorAll(`#${productId} .color-option`);
         
-        // If no color options, add a placeholder or hide the section
+        // Check if this is a preview-only product
+        const firstColorOption = colorOptions[0];
+        const isPreviewOnly = firstColorOption &&
+          firstColorOption.getAttribute('onclick').includes(', true)');
+        
         if (colorOptions.length === 0) {
           panelColorOptions.closest('.panel-options-section').style.display = 'none';
           return;
@@ -2625,32 +3378,33 @@ gap: 1px;
           
           // Copy attributes from the original color option
           const color = option.getAttribute('data-color');
-          const circleImage = option.getAttribute('data-circle-image');
-          const previewImage = option.getAttribute('data-preview-image');
+          const circleImage = option.getAttribute('data-circle-image') ||
+            option.style.backgroundImage.replace(/url\(['"](.+)['"]\)/, '$1');
+          const previewImage = option.getAttribute('data-preview-image') || circleImage;
           
           colorCircle.setAttribute('data-color', color);
           colorCircle.setAttribute('data-preview-image', previewImage);
           colorCircle.style.backgroundImage = `url('${circleImage}')`;
           
-          if (option.classList.contains('selected')) {
+          if (!isPreviewOnly && option.classList.contains('selected')) {
             colorCircle.classList.add('selected');
           }
           
           // Add click event
           colorCircle.addEventListener('click', function() {
-            // Remove selected class from all options
-            panelColorOptions.querySelectorAll('.panel-color-option').forEach(opt => {
-              opt.classList.remove('selected');
-            });
-            
-            // Add selected class to clicked option
-            this.classList.add('selected');
-            
-            // Update main image
-            panelImg.src = previewImage;
-            
-            // Also update the product page image and selection
-            selectColor(productId, color);
+            if (isPreviewOnly) {
+              // For preview-only products, just update the image
+              selectColor(productId, null, this, true);
+              document.getElementById('panelImage').src = previewImage;
+            } else {
+              // For regular products, handle selection and update image
+              panelColorOptions.querySelectorAll('.panel-color-option').forEach(opt => {
+                opt.classList.remove('selected');
+              });
+              this.classList.add('selected');
+              selectColor(productId, color, this);
+              document.getElementById('panelImage').src = previewImage;
+            }
           });
           
           panelColorOptions.appendChild(colorCircle);
@@ -2659,79 +3413,185 @@ gap: 1px;
       
       
       
-      
-      
-      
-      
-      
       // Function to populate size options
-      function populateSizeOptions(productId) {
-        // Clear existing options
-        panelSizeOptions.innerHTML = '';
-        
-        // Get size options from the main page
-        const sizeOptions = document.querySelectorAll(`#${productId} .size-option`);
-        
-        sizeOptions.forEach(option => {
-          const sizeBtn = document.createElement('div');
-          sizeBtn.classList.add('panel-size-option');
-          
-          // Copy attributes from the original size option
-          const size = option.getAttribute('data-size');
-          sizeBtn.setAttribute('data-size', size);
-          sizeBtn.textContent = size;
-          
-          if (option.classList.contains('selected')) {
-            sizeBtn.classList.add('selected');
-          }
-          
-          // Add click event
-          sizeBtn.addEventListener('click', function() {
-            // Remove selected class from all options
-            panelSizeOptions.querySelectorAll('.panel-size-option').forEach(opt => {
-              opt.classList.remove('selected');
-            });
-            
-            // Add selected class to clicked option
-            this.classList.add('selected');
-            
-            // Also update the product page selection
-            selectSize(productId, size);
-          });
-          
-          panelSizeOptions.appendChild(sizeBtn);
-        });
+      // Function to populate size options
+function populateSizeOptions(productId) {
+  const panelSizeOptions = document.getElementById('panelSizeOptions');
+  // Clear existing options
+  panelSizeOptions.innerHTML = '';
+  
+  // Handle unavailable- prefix just like in openProductPanel
+  let originalProductId = productId;
+  if (originalProductId.startsWith('unavailable-')) {
+    originalProductId = originalProductId.replace('unavailable-', '');
+  }
+  
+  // Get product config using the original ID
+  const config = productConfigs[originalProductId];
+  if (!config) {
+    console.error(`Product config not found for ${originalProductId}`);
+    return; // Safety check
+  }
+  
+  // Define all possible sizes
+  const allPossibleSizes = ["M", "L", "XL", "2XL"];
+  
+  // Get the product's available sizes
+  const productSizes = config.sizes || [];
+  
+  // Check if product is available (has price)
+  const isPriceAvailable = config.basePrice !== null && config.basePrice !== undefined;
+  
+  // Create options for all sizes, marking unavailable ones
+  allPossibleSizes.forEach(size => {
+    const sizeBtn = document.createElement('div');
+    sizeBtn.classList.add('panel-size-option');
+    
+    // Set size attribute
+    sizeBtn.setAttribute('data-size', size);
+    sizeBtn.textContent = size;
+    
+    // Check if size is available for this product
+    const isAvailable = productSizes.includes(size);
+    
+    // Find if this size is selected on the main page
+    const mainProductContainer = document.getElementById(productId); // Use the original ID with potential 'unavailable-' prefix
+    if (mainProductContainer) {
+      const mainSizeOption = mainProductContainer.querySelector(`.size-option[data-size="${size}"]`);
+      if (mainSizeOption && mainSizeOption.classList.contains('selected')) {
+        sizeBtn.classList.add('selected');
       }
+    }
+    
+    // Mark unavailable sizes or sizes for unavailable products
+    if (!isAvailable || !isPriceAvailable) {
+      sizeBtn.classList.add('unavailable');
+      // Add cross mark for unavailable size
+      const sizeCross = document.createElement('span');
+      sizeCross.className = 'size-cross';
+      sizeCross.textContent = '✕';
+      sizeBtn.appendChild(sizeCross);
+    } else {
+      // Add click event only for available sizes on available products
+      sizeBtn.addEventListener('click', function() {
+        // --- Panel Visual Update ---
+        // Remove selected class from all panel options
+        panelSizeOptions.querySelectorAll('.panel-size-option').forEach(opt => {
+          opt.classList.remove('selected');
+        });
+        // Add selected class to clicked panel option
+        this.classList.add('selected');
+        
+        // --- Main Page Update ---
+        // Call the main selectSize function with the correct arguments
+        // Use originalProductId for the config lookup
+        selectSize(originalProductId, size);
+      });
+    }
+    
+    panelSizeOptions.appendChild(sizeBtn);
+  });
+  
+
+}      
       
-      // Function to open panel with product details - Make it globally accessible
-      window.openProductPanel = function(productId) {
-        currentProductId = productId;
+      
         
-        // Get product info
-        const productContainer = document.getElementById(productId);
+// Modify the beginning of your openProductPanel function
+window.openProductPanel = function(productId) {
+    // ---- START FIX ----
+    let originalProductId = productId;
+    if (originalProductId.startsWith('unavailable-')) {
+      originalProductId = originalProductId.replace('unavailable-', '');
+    }
+    // Use originalProductId for config lookups, keep productId for element lookups if needed
+    currentProductId = originalProductId; // Store the *original* ID for config lookups
+    const config = productConfigs[currentProductId]; // Use the corrected ID here
+    // ---- END FIX ----
+    
+    // Get product info
+    const productContainer = document.getElementById(productId); // Use the potentially modified ID to find the element
+    
+    // Check if product is unavailable (using the same method as in the main page)
+    // A product is unavailable if it doesn't have valid price data
+    // const config = productConfigs[productId]; // REMOVED - already fetched above
+    const isPriceAvailable = config && config.basePrice !== null && config.basePrice !== undefined;
+    
+    // Get the Add to Cart button in the panel
+    const panelAddToCartBtn = document.getElementById('panelAddToCart');
+    
+    // Disable button if product is unavailable
+    if (!isPriceAvailable) {
+      // Disable the button
+      panelAddToCartBtn.disabled = true;
+      panelAddToCartBtn.style.opacity = '0.5';
+      panelAddToCartBtn.style.pointerEvents = 'none';
+      
+      // Add an unavailable message below the button
+      const warningText = document.createElement('div');
+      warningText.textContent = '';
+      warningText.style.color = 'red';
+      warningText.style.textAlign = 'center';
+      warningText.style.marginTop = '5px';
+      warningText.id = 'panel-unavailable-warning';
+      
+      // Add the warning after the button
+      panelAddToCartBtn.parentElement.appendChild(warningText);
+    } else {
+      // Enable the button (in case it was disabled before)
+      panelAddToCartBtn.disabled = false;
+      panelAddToCartBtn.style.opacity = '1';
+      panelAddToCartBtn.style.pointerEvents = 'auto';
+      
+      // Remove any existing warning
+      const existingWarning = document.getElementById('panel-unavailable-warning');
+      if (existingWarning) {
+        existingWarning.remove();
+      }
+    }
         const productName = productContainer.querySelector('.product-name').textContent;
-        const originalPrice = productContainer.querySelector('.original-price').textContent;
-        const discountedPrice = productContainer.querySelector('.discounted-price').textContent;
         
-        // Set product info in panel
+        
+                const originalPriceElement = productContainer.querySelector('.original-price');
+        const discountedPriceElement = productContainer.querySelector('.discounted-price');
+        
+        const originalPriceText = originalPriceElement ? originalPriceElement.textContent : ''; // Get text only if element exists, otherwise empty string
+        const discountedPriceText = discountedPriceElement ? discountedPriceElement.textContent : 'SOLD OUT!!!'; // Fallback if somehow missing
+        
+        // Get panel elements for prices
+        const panelOriginalPriceElement = document.getElementById('panelOriginalPrice');
+        const panelDiscountedPriceElement = document.getElementById('panelDiscountedPrice');
+        
+        // Set product info in panel - Conditionally display original price
         panelProductName.textContent = productName;
-        panelOriginalPrice.textContent = originalPrice;
-        panelDiscountedPrice.textContent = discountedPrice;
         
+        if (originalPriceText) {
+          panelOriginalPriceElement.textContent = originalPriceText;
+          panelOriginalPriceElement.style.display = 'inline'; // Or 'block' depending on layout
+        } else {
+          panelOriginalPriceElement.textContent = ''; // Clear previous value
+          panelOriginalPriceElement.style.display = 'none'; // Hide if no original price
+        }
+        panelDiscountedPriceElement.textContent = discountedPriceText;
+        // --- MODIFIED PRICE HANDLING END ---
         
         // Find where it says "Set description" in openProductPanel function
-        // Add this right before it:
-        const sizeChartImg = document.querySelector('.panel-size-chart img');
-        if (productSizeCharts[productId]) {
-          sizeChartImg.src = productSizeCharts[productId];
-          document.querySelector('.panel-size-chart').style.display = 'block';
-        } else {
-          document.querySelector('.panel-size-chart').style.display = 'none';
-        }
-        
+        // Get reference to the size chart image element
+const sizeChartImg = document.querySelector('.panel-size-chart img');
+
+// Check if this product exists in productConfigs and has a size chart
+if (productConfigs[productId] && productConfigs[productId].sizeChart) {
+  // Set the image source to the size chart from product configuration
+  sizeChartImg.src = productConfigs[productId].sizeChart;
+  // Make the size chart panel visible
+  document.querySelector('.panel-size-chart').style.display = 'block';
+} else {
+  // If product doesn't exist or has no size chart, hide the panel
+  document.querySelector('.panel-size-chart').style.display = 'none';
+}
         
         // Set description
-       panelDescription.innerHTML = productConfigs[currentProductId]?.description || 'Product description not available.';
+        panelDescription.innerHTML = productConfigs[currentProductId]?.description || 'Product description not available.';
         // Using optional chaining (?.) is safer in case a product config accidentally misses a description
         
         // Get current quantity
@@ -2754,11 +3614,6 @@ gap: 1px;
         
         // Show the current image
         updatePanelImage();
-        
-        
-        
-        
-        
         
         // Add event handler for "Add to Cart" button
         // Add event handler for "Add to Cart" button
@@ -2835,11 +3690,6 @@ gap: 1px;
           // Close the panel
           closePanel();
         };
-        
-        
-        
-        
-        
         
         // Show panel and overlay
         panel.classList.add('active');
@@ -2977,11 +3827,19 @@ gap: 1px;
         // Get the current product ID from the panel's state
         const productId = currentProductId;
         
-        // Validate color selection
-        const selectedColorElement = panelColorOptions.querySelector('.panel-color-option.selected');
-        if (!selectedColorElement) {
-          alert('Please select a color before adding to cart.');
-          return;
+        // Check if this is a preview-only product
+        const mainProductContainer = document.getElementById(productId);
+        const firstColorOption = mainProductContainer.querySelector('.color-option');
+        const isPreviewOnly = firstColorOption &&
+          firstColorOption.getAttribute('onclick').includes(', true)');
+        
+        // Only validate color selection if it's not a preview-only product
+        if (!isPreviewOnly) {
+          const selectedColorElement = panelColorOptions.querySelector('.panel-color-option.selected');
+          if (!selectedColorElement) {
+            alert('Please select a color before adding to cart.');
+            return;
+          }
         }
         
         // Validate size selection
@@ -2991,9 +3849,13 @@ gap: 1px;
           return;
         }
         
-        // Get selected color and size
-        const selectedColor = selectedColorElement.getAttribute('data-color');
+        // Get selected size and color (if applicable)
         const selectedSize = selectedSizeElement.getAttribute('data-size');
+        let selectedColor = null;
+        if (!isPreviewOnly) {
+          const selectedColorElement = panelColorOptions.querySelector('.panel-color-option.selected');
+          selectedColor = selectedColorElement ? selectedColorElement.getAttribute('data-color') : null;
+        }
         
         // Get the quantity from the panel
         const quantityElement = document.getElementById('panelQuantity');
@@ -3007,14 +3869,16 @@ gap: 1px;
         // Update the color and size selection on the main page
         const mainProductContainer = document.getElementById(productId);
         
-        // Update color selection
-        const mainColorOptions = mainProductContainer.querySelectorAll('.color-option');
-        mainColorOptions.forEach(option => {
-          option.classList.remove('selected');
-          if (option.getAttribute('data-color') === selectedColor) {
-            option.classList.add('selected');
-          }
-        });
+        // Update color selection only if it's not a preview-only product
+        if (!isPreviewOnly && selectedColor) {
+          const mainColorOptions = mainProductContainer.querySelectorAll('.color-option');
+          mainColorOptions.forEach(option => {
+            option.classList.remove('selected');
+            if (option.getAttribute('data-color') === selectedColor) {
+              option.classList.add('selected');
+            }
+          });
+        }
         
         // Update size selection
         const mainSizeOptions = mainProductContainer.querySelectorAll('.size-option');
@@ -3031,41 +3895,6 @@ gap: 1px;
         // Close the panel
         closePanel();
       };
-    });
-    
-    
-    function selectSize(productId, size) {
-      const product = document.getElementById(productId);
-      const sizeOptions = product.querySelectorAll('.size-option');
-      
-      sizeOptions.forEach(option => {
-        option.classList.remove('selected');
-        if (option.getAttribute('data-size') === size) {
-          option.classList.add('selected');
-        }
-      });
-    }
-  </script>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Find the existing panel "Add to Cart" button
-      const panelAddToCartBtn = document.getElementById('panelAddToCart');
-      
-      // Modify the "Add to Cart" event handler to use the main addToCart function
-      panelAddToCartBtn.addEventListener('click', function() {
-        // Ensure we have a current product selected
-        if (!currentProductId) {
-          alert('No product selected');
-          return;
-        }
-        
-        // Call the main addToCart function with the current product ID
-        addToCart(currentProductId);
-        
-        // Close the panel after adding to cart
-        closePanel();
-      });
     });
     
     // Ensure these functions are added to match the existing panel script
@@ -3119,55 +3948,9 @@ gap: 1px;
     
     // Eye icons to all product images
   </script>
-  
-  
-  
-  <script>
-    //Eye image over product
-    document.addEventListener('DOMContentLoaded', function() {
-      // First add the eye overlay to all product images
-      function addEyeOverlayToProducts() {
-        const productImages = document.querySelectorAll('.product-image');
-        
-        productImages.forEach(container => {
-          // Create eye overlay element
-          const eyeOverlay = document.createElement('div');
-          eyeOverlay.className = 'eye-overlay';
-          eyeOverlay.innerHTML = `
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                    <circle cx="12" cy="12" r="3"></circle>
-                </svg>
-            `;
-          
-          // Get the product ID from the closest parent product container
-          const productContainer = container.closest('.product-container');
-          const productId = productContainer ? productContainer.id : null;
-          
-          // Add click event to the eye overlay that uses your existing openProductPanel function
-          eyeOverlay.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (productId && window.openProductPanel) {
-              window.openProductPanel(productId);
-            }
-          });
-          
-          // Add the overlay to the container
-          container.appendChild(eyeOverlay);
-        });
-      }
-      
-      // Call the function to add eye overlays
-      addEyeOverlayToProducts();
-    });
-  </script>
-  
+
   </form>
 </body>
-
-
-
 
 <body>
   <!-- Product Slide Panel -->
@@ -3189,6 +3972,14 @@ gap: 1px;
     
     <!-- Product details section -->
     <div class="panel-product-details">
+      
+      <!-- Color options -->
+      <div class="panel-options-section">
+        <div id="panelColorOptions" class="panel-color-options">
+          <!-- Color options will be added dynamically -->
+        </div>
+      </div>
+      
       <h3 id="panelProductName" class="panel-product-name"></h3>
       
       <div class="panel-product-price">
@@ -3196,13 +3987,7 @@ gap: 1px;
         <span id="panelDiscountedPrice" class="panel-discounted-price"></span>
       </div>
       
-      <!-- Color options -->
-      <div class="panel-options-section">
-        <div class="panel-options-title">Colour:</div>
-        <div id="panelColorOptions" class="panel-color-options">
-          <!-- Color options will be added dynamically -->
-        </div>
-      </div>
+      
       
       <!-- Size options -->
       <div class="panel-options-section">
