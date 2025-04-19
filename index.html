@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fix 19 Apr</title>
+  <title>ACCENDRO</title>
+  <link rel="icon" href="https://i.postimg.cc/3NH9jtmQ/growth-20231115095146.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
   
   
@@ -2405,9 +2406,22 @@ function filterProducts(category, subcategory) {
     document.addEventListener('DOMContentLoaded', function() {
       initializeCart();
       
-      // Add CSS for the new buttons
-      const style = document.createElement('style');
-      document.head.appendChild(style);
+      const defaultPage = location.hash?.substring(1) || 'products-page';
+
+// Show correct page on first load (but don't push state again)
+document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+document.getElementById(defaultPage).classList.add('active');
+history.replaceState({ page: defaultPage }, '', `#${defaultPage}`);
+updateFloatingCart();
+
+// Listen for back/forward buttons
+window.addEventListener('popstate', e => {
+  const page = e.state?.page || 'products-page';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById(page).classList.add('active');
+  window.scrollTo(0, 0);
+  updateFloatingCart();
+});
       
       // Initialize the app with proper page setup
       initializeApp();
@@ -2423,21 +2437,17 @@ function filterProducts(category, subcategory) {
     
     // Replace the complex navigation handling with the simpler approach from Fix 6
 function navigateToPage(pageId) {
-  // Hide all pages
-  document.querySelectorAll('.page').forEach(page => {
-    page.classList.remove('active');
-  });
-  
-  // Show the requested page
+  // Show only the requested page
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(pageId).classList.add('active');
-  
-    // Scroll to top when changing pages
+
+  // Scroll to top
   window.scrollTo(0, 0);
-  
-  // Update the URL hash for better navigation
-  window.location.hash = pageId;
-  
-  // Update floating cart visibility based on current page
+
+  // Update history
+  history.pushState({ page: pageId }, '', `#${pageId}`);
+
+  // Update cart button
   updateFloatingCart();
 }
 
