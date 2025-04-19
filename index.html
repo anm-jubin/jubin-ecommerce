@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ACCENDRO</title>
-  <link rel="icon" href="https://i.postimg.cc/3NH9jtmQ/growth-20231115095146.png" type="image/png">
+<link rel="icon" href="https://i.postimg.cc/3NH9jtmQ/growth-20231115095146.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
   
   
@@ -725,6 +725,28 @@
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
         /* Add shadow on press */
       }
+      
+       .product-container {
+        -webkit-tap-highlight-color: transparent; /* Or rgba(0,0,0,0) */
+    }
+    /* --- END --- */
+
+    /* Keep the rules for specific elements inside the card as a backup */
+    .product-container .color-option,
+    .product-container .quantity-btn,
+    .product-container .size-option,
+    .product-container .add-to-cart-btn,
+    .product-container .buy-now-btn,
+    .product-container .product-image, /* If image is clickable */
+    .product-container .view-details-icon { /* If eye icon is clickable */
+        -webkit-tap-highlight-color: transparent; /* Or rgba(0,0,0,0) */
+    }
+
+    /* Keep rules for other areas like order summary */
+    .order-summary .cart-qty-btn,
+    .order-summary .remove-item-btn {
+         -webkit-tap-highlight-color: transparent; /* Or rgba(0,0,0,0) */
+    }
     }
     
     /* --- End Touch Device Adjustments --- */
